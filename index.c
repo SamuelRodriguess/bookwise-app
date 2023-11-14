@@ -1,40 +1,91 @@
-#include <gtk/gtk.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include "models/BookWiseStructs.c"
+#include "src/getEbook.c"
 
-static void
-print_hello(GtkWidget *widget,
-            gpointer data)
+char options()
 {
-    g_print("Hello World\n");
+    char opcao;
+    printf("\n\n\n");
+    printf(" (C)adastrar.\n");
+    printf(" (M)ostrar.\n");
+    printf(" C(A)arregar.\n");
+    printf(" (S)alvar.\n");
+    printf(" (D)escrição do livro.\n");
+    printf(" (T)erminar.\n");
+    fflush(stdin);
+    scanf(" %c", &opcao);
+    return opcao;
 }
 
-static void
-activate(GtkApplication *app,
-         gpointer user_data)
+void cadastrar()
 {
-    GtkWidget *window;
-    GtkWidget *button;
-
-    window = gtk_application_window_new(app);
-    gtk_window_set_title(GTK_WINDOW(window), "Window");
-    gtk_window_set_default_size(GTK_WINDOW(window), 200, 200);
-
-    button = gtk_button_new_with_label("Hello World");
-    g_signal_connect(button, "clicked", G_CALLBACK(print_hello), NULL);
-    gtk_window_set_child(GTK_WINDOW(window), button);
-
-    gtk_window_present(GTK_WINDOW(window));
+    // Implemente a lógica para cadastrar aqui
+    printf("Cadastrando...\n");
 }
 
-int main(int argc,
-         char **argv)
+void mostrar()
 {
-    GtkApplication *app;
-    int status;
+    // Implemente a lógica para mostrar aqui
+    printf("Mostrando...\n");
+}
 
-    app = gtk_application_new("org.gtk.example", G_APPLICATION_DEFAULT_FLAGS);
-    g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
-    status = g_application_run(G_APPLICATION(app), argc, argv);
-    g_object_unref(app);
+void carregar()
+{
+    // Implemente a lógica para carregar aqui
+    printf("Carregando...\n");
+}
 
-    return status;
+void salvar()
+{
+    // Implemente a lógica para salvar aqui
+    printf("Salvando...\n");
+}
+
+void descricao()
+{
+    // Implemente a lógica para a descrição do livro aqui
+    printf("Descrição do livro...\n");
+
+    const char *isbn_exemplo = "9780553382563"; // ISBN do livro "The Hitchhiker's Guide to the Galaxy"
+    obter_informacoes_livro(isbn_exemplo);
+}
+
+int main()
+{
+    char opt;
+    do
+    {
+        opt = options();
+        switch (opt)
+        {
+        case 'C':
+            system("clear");
+            cadastrar();
+            break;
+        case 'M':
+            system("clear");
+            mostrar();
+            break;
+        case 'A':
+            system("clear");
+            carregar();
+            break;
+        case 'S':
+            system("clear");
+            salvar();
+            break;
+        case 'D':
+            system("clear");
+            descricao();
+            break;
+        case 'T':
+            exit(0);
+        default:
+            printf("Comando inválido\n");
+        }
+    } while (opt != 'T');
+
+    return 0;
 }
