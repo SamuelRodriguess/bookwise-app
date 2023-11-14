@@ -3,38 +3,38 @@
 #include <locale.h>
 #include "models/BookWiseStructs.c"
 #include "src/getEbook.c"
+#include "src/options.c"
+#include "src/saveEbook.c"
 
-char options()
+void carregar()
 {
-    char opcao;
-    printf("\n\n\n");
-    printf(" (C)adastrar.\n");
-    printf(" (M)ostrar.\n");
-    printf(" C(A)arregar.\n");
-    printf(" (S)alvar.\n");
-    printf(" (D)escrição do livro.\n");
-    printf(" (T)erminar.\n");
-    fflush(stdin);
-    scanf(" %c", &opcao);
-    return opcao;
-}
-
-void cadastrar()
-{
-    // Implemente a lógica para cadastrar aqui
-    printf("Cadastrando...\n");
+  // Implemente a lógica para carregar aqui
+    printf("Carregando...\n");
 }
 
 void mostrar()
 {
-    // Implemente a lógica para mostrar aqui
-    printf("Mostrando...\n");
-}
+    struct Livro *auxiliaryLivro;
 
-void carregar()
-{
-    // Implemente a lógica para carregar aqui
-    printf("Carregando...\n");
+    if (initialLivro == NULL)
+    {
+        printf("\tERRO: Lista de livros vazia\n");
+        return;
+    }
+
+    auxiliaryLivro = initialLivro;
+
+    while (auxiliaryLivro != NULL)
+    {
+        printf("\nTitulo: %s", auxiliaryLivro->titulo);
+        printf("\nAutor: %s", auxiliaryLivro->autor);
+        printf("\nAno de Publicacao: %d", auxiliaryLivro->anoPublicacao);
+        printf("\nGenero: %s", auxiliaryLivro->genero);
+        printf("\nDisponivel: %d", auxiliaryLivro->disponivel);
+        printf("\nISBN: %d", auxiliaryLivro->isbn);
+
+        auxiliaryLivro = auxiliaryLivro->next;
+    }
 }
 
 void salvar()
