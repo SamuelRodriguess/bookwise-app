@@ -1,3 +1,5 @@
+##  Book Wise
+
 Bem-vindo ao Book Wise, uma aplicação dedicada a organizar e gerenciar sua biblioteca pessoal de forma eficiente. Este README fornecerá informações essenciais para começar a usar o Book Wise.
 
 Sumário
