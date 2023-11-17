@@ -26,6 +26,19 @@ void cadastrar()
         fflush(stdin);
         fgets(newLivro->autor, sizeof(newLivro->autor), stdin);
 
+        printf("Ano de Publicacao: ");
+        scanf("%d", &(newLivro->anoPublicacao));
+
+        printf("Genero: ");
+        fflush(stdin);
+        fgets(newLivro->genero, sizeof(newLivro->genero), stdin);
+
+        printf("Disponivel (1 para Sim, 0 para Nao): ");
+        scanf("%d", &(newLivro->disponivel));
+
+        printf("ISBN: ");
+        scanf("%d", &(newLivro->isbn));
+
         newLivro->next = NULL;
 
         if (initialLivro == NULL)
@@ -42,4 +55,22 @@ void cadastrar()
             temp->next = newLivro;
         }
     }
+
+    // Writing to a text file
+    FILE *file = fopen("livros.txt", "a"); // 'a' for append mode
+    if (file == NULL)
+    {
+        printf("Erro ao abrir o arquivo de texto.\n");
+        return;
+    }
+
+    struct Livro *temp = initialLivro;
+    while (temp != NULL)
+    {
+        fprintf(file, "Titulo: %sAutor: %sAno de Publicacao: %d\nGenero: %sDisponivel: %d\nISBN: %d\n\n",
+                temp->titulo, temp->autor, temp->anoPublicacao, temp->genero, temp->disponivel, temp->isbn);
+        temp = temp->next;
+    }
+
+    fclose(file);
 }
