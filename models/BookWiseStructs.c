@@ -6,6 +6,7 @@ struct Livro
     char genero[50];
     int disponivel;
     int isbn;
+    char quemPegou[100];
     struct Livro *next;
 };
 

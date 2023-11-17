@@ -1,14 +1,42 @@
-Titulo: 
+Titulo: sas
 Autor: primeiro livro
 Ano de Publicacao: 2018
-Genero: 
+Genero: mas
 Disponivel: 1
+ISBN: 9Titulo: 
+Autor: SAS EDITADO
+Ano de Publicacao: 11
+Genero: 
+Disponivel: 0
+Quem Pegou: 
 ISBN: 912849571
 
+849571
+
 Titulo: 
-Autor: segundo livro
-Ano de Publicacao: 2019
+Autor: sasas
+Ano de Publicacao: 1211
 Genero: 
+
 Disponivel: 1
-ISBN: 912849571
+quemPegou: 
+
+ISBN: 1111
+
+Titulo: 
+Autor: qwqwqw
+Ano de Publicacao: 0
+Genero: sasas
+
+Disponivel: 0
+quemPegou: 
+ISBN: 0
+
+Titulo: sasas
+Autor: sasasa
+Ano de Publicacao: 0
+Genero: sasas
+Disponivel: 1
+Quem Pegou: 
+ISBN: 222
 

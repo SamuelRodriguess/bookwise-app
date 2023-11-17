@@ -1,56 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <stdbool.h>
 #include "models/BookWiseStructs.c"
 #include "src/getEbook.c"
 #include "src/options.c"
 #include "src/saveEbook.c"
-
-void carregar()
-{
-  // Implemente a lógica para carregar aqui
-    printf("Carregando...\n");
-}
-
-void mostrar()
-{
-    struct Livro *auxiliaryLivro;
-
-    if (initialLivro == NULL)
-    {
-        printf("\tERRO: Lista de livros vazia\n");
-        return;
-    }
-
-    auxiliaryLivro = initialLivro;
-
-    while (auxiliaryLivro != NULL)
-    {
-        printf("\nTitulo: %s", auxiliaryLivro->titulo);
-        printf("\nAutor: %s", auxiliaryLivro->autor);
-        printf("\nAno de Publicacao: %d", auxiliaryLivro->anoPublicacao);
-        printf("\nGenero: %s", auxiliaryLivro->genero);
-        printf("\nDisponivel: %d", auxiliaryLivro->disponivel);
-        printf("\nISBN: %d", auxiliaryLivro->isbn);
-
-        auxiliaryLivro = auxiliaryLivro->next;
-    }
-}
-
-void salvar()
-{
-    // Implemente a lógica para salvar aqui
-    printf("Salvando...\n");
-}
-
-void descricao()
-{
-    // Implemente a lógica para a descrição do livro aqui
-    printf("Descrição do livro...\n");
-
-    const char *isbn_exemplo = "9780553382563"; // ISBN do livro "The Hitchhiker's Guide to the Galaxy"
-    obter_informacoes_livro(isbn_exemplo);
-}
+#include "src/fetchBookFile.c"
+#include "src/searchBook.c"
+#include "src/showBook.c"
+#include "src/editBook.c"
 
 int main()
 {
@@ -70,15 +29,17 @@ int main()
             break;
         case 'A':
             system("clear");
-            carregar();
+            printf("Digite o critério de busca (Título ou ISBN): ");
+            char criterio[100];
+            scanf("%s", criterio);
+            buscarLivro(criterio);
             break;
-        case 'S':
+        case 'E':
             system("clear");
-            salvar();
-            break;
-        case 'D':
-            system("clear");
-            descricao();
+            printf("Digite o critério de busca (Título ou ISBN): ");
+            char criterioEditar[100];
+            scanf("%s", criterioEditar);
+            editarLivro(criterioEditar);
             break;
         case 'T':
             exit(0);
