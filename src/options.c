@@ -5,8 +5,7 @@ char options()
     printf(" (C)adastrar.\n");
     printf(" (M)ostrar.\n");
     printf(" C(A)arregar.\n");
-    printf(" (S)alvar.\n");
-    printf(" (D)escrição do livro.\n");
+    printf(" (E)ditar \n");
     printf(" (T)erminar.\n");
     fflush(stdin);
     scanf(" %c", &opcao);
